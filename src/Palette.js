@@ -1,19 +1,13 @@
 import React, { Component } from 'react'
 
-class Palette extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      
-    }
-  }
-
+export default class Palette extends Component {
   render() {
     return (
-      <div>Stuff</div>
+      <div className="Palette">
+         {/* Navbar here */}
+         <div className="Palette-colors">{/* bunch of colored boxes */}</div>
+         {/* Footer here */}
+      </div>
     )
   }
 }
-
-export default Palette
