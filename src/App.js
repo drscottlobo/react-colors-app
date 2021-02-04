@@ -6,10 +6,10 @@ import seedPalettes from './SeedColors';
 
 class App extends Component {
    render() {
-      console.log(generatePalette(seedPalettes[0]));
+      console.log();
       return (
          <div>
-            <Palette {...seedPalettes[4]} />
+            <Palette palette={generatePalette(seedPalettes[0])} />
          </div>
       );
    }
