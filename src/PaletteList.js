@@ -8,7 +8,7 @@ const styles = {
    root: {
       backgroundColor: 'blue',
       display: 'flex',
-      height: '100%',
+      height: '100vh',
       alignItems: 'flex-start',
       justifyContent: 'center'
    },
@@ -20,25 +20,38 @@ const styles = {
       flexWrap: 'wrap'
    },
    nav: {
-
+      display: 'flex',
+      width: '100%',
+      justifyContent: 'wrap',
+      color: 'white'
+   },
+   palettes: {
+      width: '100%',
+      boxSizing: 'border-box',
+      display: 'grid',
+      gridTemplateColumns: 'repeat(3, 30%)',
+      gridGap: '5%'
    }
 }
 
 class PaletteList extends Component {
+   goToPalette (id) {
+      this.props.history.push(`/palette/${id}`);
+   }
    render() {
       const { palettes, classes } = this.props;
       return (
          <div className={classes.root}>
             <div className={classes.container}>
-               <nav className={classes.nav}></nav>
+               <nav className={classes.nav}>
+                  <h1>React Colors</h1>
+               </nav>
                <div className={classes.palettes}>
-                  <MiniPalette />
-                     {palettes.map(p => {
-                        return <MiniPalette {...p}/>
-                     })}
+                     {palettes.map(p => (
+                        <MiniPalette {...p} handleClick={() => this.goToPalette(p.id)}/>
+                     ))}
                </div>
             </div>
-            
          </div>
       )
    }
